@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022_02_10 복습 요약 (오탁근)</title>
+
+    <style>
+        #title1, #title2 {
+            color:red;
+        }
+
+        #subtitle1, #subtitle2, #subtitle3, #subtitle4, #subtitle5 {
+            color:blue;
+            font-size: 20px;
+            font-weight: bold;
+            font-family:cursive;
+        }
+
+        #emphasis {
+            color:white;
+            background-color: #FF00DD;
+        }
+
+    </style>
+</head>
+<body>
+    <h1 id="title1">Day 2에 배운 것</h1>
+    <ul>
+        <li>컴파일 언어 : 한 번에 번역 / 인터프리터 언어 : 한 줄씩 번역</li>
+        <li>텍스트 -> 숫자 (인코딩) / 숫자 -> 텍스트 (디코딩) </li>
+        <li>1byte = 8bit</li>
+        <li>자바스크립트 사용 시기 : 1995년 / HTML로 이루어진 파일이 서버에 있고, 브라우저는 해당 파일을 받아서 다시 우리에게 공유</li>
+        <li>키오스크 - 주로 파이썬 언어로 만들어짐</li>
+        <li>텍스트 데이터 : 수정 가능 / 바이너리 데이터(이미지 등) : 수정 불가능</li>
+    </ul>
+    <br><br><br><br>
+
+    <h1 id="title2">Day 3 학습내용</h1>
+    <ol start="0">
+        <!-- <li style="font-size:20px; font-weight: bold;">기본 개념</li> -->
+        <li id="subtitle1">기본 개념</li>
+        <ul style="list-style-type:disc;">                  <!-- 여기서 태그 아이콘이 기본값인 검은 원으로 왜 안되는지 질문하기 (추측 : 중첩 시 문단 수준에 따라 자동으로 원의 색상을 변형시키는 것 같음.) -->
+            <li style="margin-left: -20px;">인터넷 : 웹이 나오기 전부터 만들어진 컴퓨터 연결 네트워크</li>
+            <li style="margin-left: -20px;">웹 : 인터넷을 활용하는 응용서비스들 중의 하나, 서버와 브라우저 둘이 정보를 전달하고 공유하는 방식으로 운영.</li>
+            <li style="margin-left: -20px;">웹 발달단계 :
+                <ul>
+                    <li style="list-style-type: none; margin-left: -40px;">1.0 : 문서를 표현하는 정적(static)인 웹사이트(89~90년대 중반까지)</li>
+                    <li style="list-style-type: none; margin-left: -40px;">2.0 : 동적인 페이지가 나오기 시작 - 자바스크립트의 출현 때문</li>
+                    <li style="list-style-type: none; margin-left: -40px;">3.0 : 더 화려하게 움직일 수 있도록 만드는 애니메이션 효과...CGI(Common Gateway Interface)</li>
+                    <li style="list-style-type: none; margin-left: -40px;">4.0 : HTML5이 표준, 자바스크립트도 표준, 문서를 공유하여 모든 데이터 종류를 주고 받을 수 있는 시대 도래.</li>
+                </ul>
+            </li>
+        </ul>
+        <br><br>
+        <!-- <li style="font-size:20px; font-weight: bold;">HTML, CSS, JS는</li> -->
+        <li id="subtitle2">HTML, CSS, JS는</li>
+        <ul style="list-style-type:disc;">
+            <li>웹을 구성하는 3개 언어입니다.
+                <li style="list-style-type: none; font-size:20px; font-weight:bold;">가. 한 짤로 보는 HTML과 HTML5</li>
+                <ul>
+                    <li>html <br> <img src="https://lh6.googleusercontent.com/2vpkHqVKh2JWOp1vgVTt_o5AxfJMuDiDElWxgGlt5Rk74ukwIowcJ11sCpvsvSA9i0LNigqj405jFLr1pwGdaF0RHPAS4uUkRQ9mzC1Zb6fkobah8vGLZhH2YJDFL-xSwQ3Lib70" /></li>
+                    <li>html5 <br> <img src="https://lh6.googleusercontent.com/YtFs492KEzn0Bty-Xlq5otNXSVsBsJCi7O2JhJPgSF-AixX_PLQsaef53UT7AMZfCulZTvLj0jwX-sL3rAVrj_w9iJyCaA6KsfX3RavVXxJ5pMmK01gpPMJCff_5jgkw00sYfoyF" /></li>
+                </ul>
+                <li style="list-style-type: none; font-size:20px; font-weight:bold;">나. 한 짤로 보는 html, css, javascript</li>
+                <ul>
+                    <li>html <br> <img src="https://radial-risk-2bf.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fa2fe18fd-a609-4c3d-9a8a-ed830b978430%2FUntitled.png?table=block&id=5aff144f-8f9c-4905-b038-eaa414ad1a4d&spaceId=d1a988f4-e527-4f37-84f2-5cf57ae3d75a&width=1830&userId=&cache=v2" width="600"/></li>
+                    <li>css <br> <img src="https://lh4.googleusercontent.com/81SAvGFjHT_GH7Xhy2I559ERvpPn6REwqeFSanu-8yZmRVsO1ATq9WhRVzwdXJVJBlPwomTvWjq52sc4lWTcMRxjTLDGuPC9QNP3Y0H3-1cjDeBSs8CGmJq2LCdvL1Cf0OUzFn0n" width="600" /></li>
+                    <li>javascript <br> <img src="https://lh4.googleusercontent.com/xudfZNa2Xk0EOufg3gtwo2LLMFEVVki0t7ffJl2CPzSxjuet5rEEyhSWdLVyW9DzmAsTuZa48rnp6iulOSrJhS3jbx0Rjpbxn9RUlSDlYXyzU5QQlndkOfTy_C680EwjIVql7cll" width="600" /></li>
+                </ul>
+            </li>
+        </ul>
+        <br><br>
+        
+        <!-- <li style="font-size:20px; font-weight: bold;">Server</li> -->
+        <li id="subtitle3">Server</li>
+        <br>
+            <img src="https://radial-risk-2bf.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F19880859-1d73-4570-8401-483b07b612d8%2FUntitled.png?table=block&id=ac0d33c2-9377-41fe-b23c-4059d6b227e3&spaceId=d1a988f4-e527-4f37-84f2-5cf57ae3d75a&width=1580&userId=&cache=v2" />
+            <ul style="list-style-type:disc;">
+                <dl>
+                    <li><dt>서버</dt></li>
+                    <dd style="margin-left: 0px;">서버는 일반적으로 클라이언트라고 불리는 사용자에게 서비스를 제공하는 소프트웨어 또는 하드웨어입니다. <br><br> 하드웨어 서버는 네트워크의 공유 컴퓨터로서, 대개 강력하고 데이터 센터에 저장됩니다. 소프트웨어 서버(하드웨어 서버에서 자주 실행됨)는 클라이언트 프로그램에 서비스를 제공하는 프로그램 또는 사용자 클라이언트의 user interface를 말합니다.</dd>
+                    <br><br>
+                    <li><dt>웹클라이언트</dt></li>
+                    <dd style="margin-left: 20px;">
+                        <li style="list-style-type:circle;">사용자와 컴퓨터 간에 대화할 수 있도록 모양새를 갖추는 것</li>
+                        <li style="list-style-type:circle;">웹서버에 문서, 정보 등을 요청하고 받아서 사용자에게 출력해주는 역할을 하는 것</li>
+                    </dd>
+                </dl>
+            </ul>
+        <br><br>
+
+        <!-- <li style="font-size:20px; font-weight: bold;">도메인과 URL / URI</li> -->
+        <li id="subtitle4">도메인과 URL / URI</li>
+        <br>
+        <ul style="list-style-type:disc;">
+            <li>IP(Internet Protocol) 주소 : .(점) 3개 사이를 숫자로 표현해서 번호를 매긴 것</li>
+            <li>도메인 주소 : IP주소를 알아보기 쉽게 하기 위해 의미를 가진 뚜껑을 씌운 것
+                <ul style="list-style-type:circle">
+                    <li>URI(Uniform Resource Identifier) : 리소스를 가리키는 모든 종류의 문자열</li>
+                    <li>URL(Uniform Resource Locator) : 인터넷에서 웹페이지, 이미지, 비디오 등의 '<strong>위치</strong>'를 가리키는 문자열</li>
+                    <ul>
+                        <li>프로토콜 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; http://</li>
+                        <li>서버주소 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 127.0.0.1</li>
+                        <li>TCP/IP 포트번호 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp; :5500 </li>
+                        <li>경로명 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; /01_html/ </li>
+                        <li>파일이름 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 1.html</li>
+                    </ul>
+                </ul>
+            </li>
+        </ul>
+        <br><br>
+
+        <!-- <li style="font-size:20px; font-weight: bold;">도메인주소를 입력했을 때 클라이언트(브라우저)는 무슨 일을 하는가</li> -->
+        <li id="subtitle5">도메인주소를 입력했을 때 클라이언트(브라우저)는 무슨 일을 하는가</li>
+        <ul>
+            <li>브라우저의 구조 <br><img src="https://radial-risk-2bf.notion.site/image/https%3A%2F%2Fbeomy.github.io%2Fassets%2Fimg%2Fposts%2Fbrowser%2Fbrowser_architecture.png?table=block&id=e5bfc079-5285-4177-b29a-841aa5a1aea0&spaceId=d1a988f4-e527-4f37-84f2-5cf57ae3d75a&width=2000&userId=&cache=v2" width="300"/></li>
+            <p>- 출처 : https://beomy.github.io/tech/browser/browser-rendering/</p>
+            <li>렌더링 엔진이 하는 일 <br><br> 
+                <ol>
+                    <li>렌더 트리 생성 (DOM + CSSOM)
+                        <ul style="list-style-type:none;">
+                            <li style="margin-left: -40px;">가.DOM TREE</li>
+                            <li style="margin-left: -40px;">나.CSSOM TREE</li>
+                            <li style="margin-left: -40px;">다.렌더 트리 생성 (DOM + CSSOM)</li>
+                        </ul>
+                    </li>
+                    <li>레이아웃 - 렌더 트리가 생성되고, 기기의 뷰포트 내에서 렌더 트리의 노드가 정확한 위치와 크기를 계산하는 과정</li>
+                    <li>페인트 - 렌더 트리의 각 노드를 화면의 실제 픽셀로 나타내는 과정</li>
+                    <li>리플로우(Reflow), 리페인트(Repaint)<br>사용자가 웹 페이지에 처음 접속을 하면, 렌더링 과정을 거쳐서 화면에 모든 요소가 그려집니다. 이후에 사용자의 액션에서 발생되는 이벤트로 인해서 새로운 HTML 요소가 추가되거나, 기존 요소의 스타일이 바뀌거나 하는 변경이 일어나게 됩니다. 이런 변경을 통해 영향을 받게되는 모든 노드에 대해서 렌더링 트리 생성과 레이아웃 과정을 다시 수행하게 됩니다.</li>
+                </ol>
+            </li>
+        </ul>
+    </ol>
+    <br><br>
+    <hr>
+
+    <p>더 생각해본 것</p>
+    <ul>
+        <li>개발자 도구를 들어가 파일이 잘 전송되었는지, 해당 사이트의 요소에는 어떠한 것이 있는지 확인해보는 시간을 가졌다.</li><br>
+        <li>가볍게 어떠한 태그로 구성되어있는지 탐색하던 중 자주 나오는 태그 몇 가지에 대하여 알아보았다.</li>
+        <ol>
+            <li>
+                div<br>
+                여러 요소들을 하나의 박스로 묶어주는 역할
+                <ol type="a">
+                    <li>h1, h2, h3 등등 <br> 제목과 같은 큰 타이틀을 정할 때 사용하고 숫자가 작아질수록 더욱 세분화된다.</li>
+                    <li>a<br>nav bar와 같은 div 안에 링크를 넣고 싶을 때 사용</li>
+                </ol>
+                위와 같이 내가 이해한대로 정리해보았는데 li tag는 정확히 어떠한 용도로 사용되는지 모르겠다. <br>그리고 개발자 도구->접근성에서 'area 속성'이라는 것을 보았는데 이것이 무엇인지도 궁금해졌다
+            </li>
+
+        </ol><br>
+        <li>일상생활에서 방문빈도가 높은 사이트들을 개발자모드로 변형시켜보는게 재밌었음</li>
+    </ul>
+
+    <p>&#9660;&nbsp;Request & Response</p>
+    <img src="https://radial-risk-2bf.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F19880859-1d73-4570-8401-483b07b612d8%2FUntitled.png?table=block&id=f00b4a28-d851-48f1-8517-31d9be9d1a77&spaceId=d1a988f4-e527-4f37-84f2-5cf57ae3d75a&width=1530&userId=&cache=v2" />
+    <ul>
+        <li>헤더필드는 서버와의 통신에 필요한 여러가지 정보를 표현합니다</li>
+        <li>영어로 되어있다. - 아스키코드로 인코딩된 텍스트로 주고 받습니다</li>
+        <li>구조 <br> <strong id="emphasis">맨 첫줄! start-line이 중요합니다.</strong> <br>
+            <img src="https://radial-risk-2bf.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F1602322d-80b0-4bf0-8d2d-585605cc2330%2FUntitled.png?table=block&id=34d5fcd2-482e-4a15-83e2-fca5502d9a8c&spaceId=d1a988f4-e527-4f37-84f2-5cf57ae3d75a&width=1530&userId=&cache=v2" />
+            <table border="1">
+                <tr>
+                    <th scope="col" style="text-align:center">구분</th>                                           <!-- 테이블을 만들 때 프로그램이 테이블헤드의 범위 지정을 자동으로 지정하다가 잘못할 경우를 대비하여 명확히 범위를 명시하는 게 좋다고 한다.-->
+                    <th scope="col" style="text-align:center"><strong>요청 (클라이언트 request)</strong></th>
+                    <th scope="col" style="text-align:center"><strong>응답 (서버 response)</strong></th>
+                </tr>
+                <tr>
+                    <th scope="row" style="text-align:center">시작줄<br>(start-line)</th>
+                    <td>1.HTTP 메서드 (GET, POST, PUT ...)<br>2. 요청 URL<br>3. HTTP 버전</td>
+                    <td>1.HTTP 버전<br>2. 상태 코드 (200, 404, ...)<br>3. 상태 텍스트 (Not Found ...)</td>
+                </tr>
+                <tr>
+                    <th scope="row" style="text-align:center">HTTP 헤더<br>(HTTP headers)</th>
+                    <td>1. request 헤더 (Host, User-Agent, Accept, ...)<br>2. general 헤더 (Connection ...)<br>3. entity 헤더 (Content-Type ...)</td>
+                    <td>1. response 헤더 (Server, Set-Cookie, Age ...)<br>2. general 헤더 (Connection ...)<br>3. entity 헤더 (Content-Type ...)</td>
+                </tr>
+                <tr>
+                    <th scope="row" style="text-align:center">공백 (empty line)</th>
+                    <td colspan="2" style="text-align:center">메타 데이터 전송이 끝났음을 알리는 공백</td>          <!-- 열을 2개 생성하고 td는 하나만 써서 행방향으로 병합시키도록 하였다.-->
+                </tr>
+                <tr>
+                    <th scope="row" style="text-align:center">바디 (body)</th>
+                    <td>서버에 전송하는 데이터 등</td>
+                    <td>클라이언트에 전달하는 데이터 등</td>
+                </tr>
+            </table>
+            <p>- 출처 : https://noahlogs.tistory.com/34</p>
+        </li>
+
+        <dt>💡 Request Header</dt>
+        <dd>
+            <strong>request-line</strong><br>
+            GET &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;http://info.cern.ch/ &ensp;&ensp;&ensp;&ensp;&ensp;HTTP/1.1<br>
+            method&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; url(URI) &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;protocol ver <br>
+            <ul>
+                <li style="list-style-type:disc">3개의 필드로 구성</li>
+                <ul>
+                    <li style="list-style-type:circle">각 필드의 구분자는 SP(공백) 입니다.</li>
+                </ul>
+            </ul>
+        </dd>
+        <dt>💡 Response Header</dt>
+        <dd>
+            <strong>response-line</strong><br>
+            &ensp;&ensp;HTTP/1.1&ensp;&ensp;&ensp;&ensp;&ensp;&ensp; 200 &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;OK<br>
+            protocol ver &ensp;&ensp;status code &ensp;&ensp;status string <br>
+            <ul>
+                <li style="list-style-type:disc">클라이언트의 요청에 대한 처리 결과</li>
+                <li style="list-style-type:disc">request-line과 마찬가지로 3개의 필드로 구성</li>
+                <ul>
+                    <li style="list-style-type:circle">각 필드의 구분자는 SP(공백)입니다.</li>
+                </ul>
+            </ul>
+        </dd>
+    </ul>
+
+
+    <!-- 이후 동영상 첨부가 포함된 "GET과 POST"를 제외한 모든 내용은 위와 같은 작업의 반복이므로 그러한 내용은 생략하고 "GET과 POST" 내용만 작성 후 마무리하겠습니다. -->
+
+    <dt>&#9660;&nbsp;GET과 POST</dt>
+    <dd>https://section.blog.naver.com/BlogHome.naver?directoryNo=0&currentPage=1&groupId=0</dd><br>
+    <dd>GET : 클라이언트가 서버에 요청을 할 때 URL 주소 뒤에 붙여서 요청하는 방식입니다.</dd>
+    <dd>URL 끝에 ?를 붙이고 그 뒤에 변수명 = 값& 변수명 = 값 이어서 붙여나갑니다.</dd><br><br>
+    <dd>GET일 때 할 수 있는 것
+        <ul>
+            <li>히스토리에 그대로 남아요</li>
+            <li>캐시가 가능하다</li>
+            <li>북마크 된다</li>
+            <li>길이에 제한이 있다(길면 BODY로 받는 것이 좋다)</li>
+        </ul>
+    </dd><br>
+    <dd>POST : 클라이언트가 서버에 요청을 할 때 BODY에 숨겨서 보내는 방식입니다.
+        <ul>
+            <li>긴 내용을 보낼 때 사용한다</li>
+            <li>body의 타입은 Content-Type 헤더에 따라서 결정이 됩니다</li>
+            <li>프라이버시 보호가 된다</li>
+            <li>브라우저 히스토리에 남지 않는다</li>
+            <li>데이터 길이에 제한이 없다</li>
+        </ul>
+
+        <iframe width="538" height="302" src="https://www.youtube.com/embed/uhlvXrDpM-Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <!-- 유튜브 공유하기에서 소스코드 복사 후 붙여넣기한 것 -->
+        <!-- iframe을 쓰는 이유로 추측하자면 페이지 내에 동영상이 재생되는 페이지를 만들어 동영상을 재생시키고자 사용한 것 같다.-->
+    </dd>
+    
+
+</body>
+</html>
