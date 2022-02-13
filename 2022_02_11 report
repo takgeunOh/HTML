@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2022_02_11_Report_takgeun</title>
+    <style>
+        /* 대단원 제목마다 스타일 적용 */
+        #content {
+            font-size: 30px;
+            font-weight: bold;
+            color:red;
+        }
+
+        /* 설명할 용어마다 스타일 적용 */
+        #description_term {
+            font-size:20px;
+            font-weight: bold;
+            color: blue;
+        }
+
+        /* 형광펜 치고 싶은 부분에 백그라운드 색상 적용 */
+        #background_strong {
+            background-color:yellow;
+        }
+    </style>
+</head>
+<body>
+    <h1>1주차 배운 내용 복습</h1>
+
+    <ol>
+        <li id="content">프로그래밍 기초</li>
+        <ul>
+            <li>
+                <dl>
+                    <dt id="description_term">컴파일 언어</dt>
+                    <dd>
+                        <ul>
+                            <li>소스코드를 컴파일(어떤 언어의 코드를 기계어로 번역)한 후 그 결과를 CPU/메모리를 통해 읽어 실행하는 방식으로 동작하는 언어</li>
+                            <li>장점 : 한번 번역을 하면 실행 파일이 생성되어 다음에 실행할 때에는 인터프리터에 비해 <strong>실행 속도가 빠르다.</strong></li>
+                            <li>단점 : 한번에 모두 번역해야하므로 줄단위로 번역하는 인터프리터에 비해 <strong id="background_strong">번역 시간이 오래 걸린다.</strong></li>
+                        </ul>
+                    </dd>
+                </dl>
+
+            </li>
+            <br>
+
+            <li>
+                <dl>
+                    <dt id="description_term">인터프리터 언어(스크립트 언어)</dt>
+                    <dd>
+                        <ul>
+                            <li>소스코드를 바로 실행하는 컴퓨터 프로그램(환경)을 말한다.</li>
+                            <li>장점 : 소스코드를 한 줄씩 번역하기 때문에 한번에 번역하는 컴파일러 언어에 비해서 <strong>번역 시간은 빠르다.</strong></li>
+                            <li>단점 : 번역 시 실행 파일을 생성하지 않기 때문에 매번 번역을 거쳐야하는 인터프리터 언어는 컴파일러에 비해 <strong>실행 속도가 느리다.</strong></li>
+                            <li>인터프리터 작동 방식
+                                <dl>
+                                    <dt><strong>REPL(Read, Evaluation, Print, Loop)</strong></dt>
+                                    <dd><img src="https://radial-risk-2bf.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fc094a22e-f11d-4e42-90e9-2627ed23095c%2FUntitled.png?table=block&id=4ff206df-66f1-450c-88d4-5c9e9137065e&spaceId=d1a988f4-e527-4f37-84f2-5cf57ae3d75a&width=1270&userId=&cache=v2", width="300" /></dd>
+                                </dl>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </li>
+            <br>
+
+            <li>아스키코드
+                <ul><li>1바이트가 8비트가 된 이유 : 2^7비트 범위 내에서 키보드 안에 있는 모든 글자에 번호를 매겼기 때문 (MSB 포함해서)</li></ul>
+            </li>
+        </ul>
+        <br><br>
+        
+        <li id="content">WEB</li>
+        <ul>
+            <li>
+                <dl>
+                    <dt>웹의 발달 단계</dt>
+                    <dd><img src="https://radial-risk-2bf.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F6e880e8d-321f-421e-a91d-625a2546d94f%2FUntitled.png?table=block&id=d8f3b9d5-a30b-4e29-b6e1-21ef71d6bb86&spaceId=d1a988f4-e527-4f37-84f2-5cf57ae3d75a&width=2000&userId=&cache=v2" width="500" /></dd>
+                    <dd>
+                        <ol>
+                            <li>
+                                <dl>
+                                    <dt>WEB 1.0 (~1990년 중반)</dt>
+                                    <dd>문서를 표현하는 <strong id="background_strong">Static site</strong></dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt>WEB 2.0</dt>
+                                    <dd>JavaScript 출현으로 <strong id="background_strong">Dynamic</strong> 페이지 등장</dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt>WEB 3.0</dt>
+                                    <dd>&#9656; CGI(Common Gateway Interface) : 웹 서버에서 <strong>동적인</strong> 페이지를 보여 주기 위해 임의의 프로그램을 실행할 수 있도록 하는 기술 중 하나.</dd>
+                                    <dd>&#9656; 애니메이션 효과</dd>
+                                </dl>
+                            </li>
+                            <li>
+                                <dl>
+                                    <dt>WEB 4.0 ~</dt>
+                                    <dd>
+                                        <ul>
+                                            <li>HTML5 표준</li>
+                                            <li>자바스크립트의 표준언어화</li>
+                                            <li>모든 데이터 종류의 문서를 공유</li>
+                                        </ul>
+                                    </dd>
+                                </dl>
+                            </li>
+                        </ol>
+                    </dd>
+                </dl>
+            </li><br>
+
+            <li>
+                <dl>
+                    <dt>웹의 동작 방식</dt>
+                    <dd><img src="https://radial-risk-2bf.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F19880859-1d73-4570-8401-483b07b612d8%2FUntitled.png?table=block&id=fd03224f-2e0d-46c3-b716-45881daa63f1&spaceId=d1a988f4-e527-4f37-84f2-5cf57ae3d75a&width=1580&userId=&cache=v2" width="500" /></dd>
+                    <dt>Client</dt>
+                    <dd>일반적으로 사용자의 장치</dd>
+                    <dt>Server</dt>
+                    <dd>웹페이지, 사이트, 앱을 저장하는 컴퓨터 등</dd>
+                    <dt>웹 동작 순서</dt>
+                    <dd>
+                        <ol>
+                            <li>Client에서 Server로 request</li>
+                            <li>브라우저가 DNS서버로 가서 서버의 진짜 주소 파악</li>
+                            <li>브라우저가 서버에게 HTTP 요청 메시지 전송, 이 때 전송되는 모든 데이터는 TCP/IP 연결을 통해서 전송</li>
+                            <li>서버는 브라우저의 요청을 승인하고 데이터 패킷 전송 시작 (response)</li>
+                            <li>브라우저는 데이터 패킷을 완전한 웹사이트로 조립하고 사용자에게 보여준다.</li>
+                        </ol>
+                    </dd>
+                </dl>
+            </li><br>
+
+            <li>
+                <dl>
+                    <dt>URL과 URI의 차이</dt>
+                    <dd>
+                        <img src="https://radial-risk-2bf.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F9d318e1f-e75c-4187-a27f-a40b77fabbf5%2FUntitled.png?table=block&id=4329b513-03d9-445c-ab77-7f6b1ce35802&spaceId=d1a988f4-e527-4f37-84f2-5cf57ae3d75a&width=2000&userId=&cache=v2" width="500" />
+                        <ul>
+                            <li>
+                                <dt>URI(Uniform Resource Identifier)</dt>
+                                <dd>resource를 나타내는 모든 종류의 문자열</dd>
+                            </li>
+                            <li>
+                                <dt>URL(Uniform Resource Locater)</dt>
+                                <dd>인터넷에서 웹페이지, 이미지, 비디오 등의 <strong id="background_strong">위치</strong></dd>
+                            </li>
+                        </ul>
+                    </dd>
+                </dl>
+            </li>
+            <br>
+
+            <li>
+                <dt>브라우저가 페이지를 띄우는 과정</dt>
+                <dd>
+                    <ol>
+                        <li>렌더 트리 생성 (DOM + CSSOM)</li>
+                        <li>레이아웃 진행 : 기기의 뷰포트 내에서 렌더 트리의 노드 배치</li>
+                        <li>페인트 진행 : 렌더 트리의 각 노드를 화면의 실제 픽셀로 나타냄</li>
+                        <li>필요에 따라 Reflow, Repaint 진행</li>
+                    </ol>
+                </dd>
+            </li>
+        </ul><br><br>
+
+        <li id="content">Form</li>
+        <ul>
+            <li>POST 방식으로 서버에 데이터 전달</li> --> 로그인 처리하는 경우에 많이 사용 (보안)
+            <li>form의 주요 속성<br>
+                <img src="data\1.PNG">
+                <ul>
+                    <li>action : 입력 데이터를 처리할 서버(백엔드/웹어플리케이션)의 URL</li>
+                    <li>method : 데이터를 전달하는 방법 (POST / GET)</li>
+                </ul>
+            </li>
+        </ul>
+
+    </ol>
+</body>
+</html>
