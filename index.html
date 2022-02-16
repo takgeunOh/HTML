@@ -8,57 +8,86 @@
 
     <link rel='stylesheet' type='text/css' href='style.css' />
 
+    <script src="https://kit.fontawesome.com/d36fd224dd.js" crossorigin="anonymous"></script>
+    <!-- CDN 사용을 위하여 kit 코드 받아서 작성 -->
+
+    <!-- 2022_02_16 업데이트
+
+    - 기존의 태그 작성 방식을 시맨틱 태그로 변경 (브라우저에서 검색될 때 유리함을 위해 시맨틱 태그 사용 습관 들이기)
+    - 로그인폼 배치를 조금 더 간결하고 근거있게 (어거지로 배치하지 않기)
+    - 로그인폼에서 라벨과 인풋을 서로 연결하기 (선생님 리팩토링)
+    - 네비게이션바 배치 후 링크 연결
+    - 네비게이션바 스티키 설정
+    
+    -->
+
 </head>
 <body>
-    <div id="header" style="border:0.5px dashed red;">
+    <header>
         <!-- 상단 홍보배너 부분 -->
         <div class="banner" style="border:0.5px dashed red;">
             <a href="http://www.cgv.co.kr/movies/detail-view/?midx=85635" target="_self">
                 <img src="https://adimg.cgv.co.kr/images/202202/THEPEOPLE/0214_980x80.jpg" alt="이미지 클릭 시 이동">
             </a>
         </div>
-        <!-- /상단 홍보배너 부분 -->
 
-        <div class="sub_header" style="border:0.1px dashed yellow; height:200px;">
+        <!-- 홍보 배너 바로 아래 부분 -->
+        <div class="sub_header">
             <!-- 로고 부분 -->
-            <a class="logo_img" href="index.html" target="_self" style="height:200px; width:250px; border:0.1px dashed green;">
+            <a class="logo_img" href="index.html" target="_self" >
                 <img src="https://img.cgv.co.kr/R2014/images/common/logo/logoRed.png" alt="logo">
             </a>
-            <!-- /로고 부분 -->
+
             <!-- 로그인 부분 -->
-            <span id="login" style="height:200px; width:500px; border:0.1px dashed black;">
-                <h2>로그인하기</h2>
-                <form method="POST">
-                    <span class="log_input" style="height:200px; width:300px; border:0.1px dashed red;">
-                        <label>EMAIL : </label>
-                        <input type="email" placeholder="이메일을 입력해주세요" name="id" required><br>
-                        <label>Password : </label>
-                        <input type="password" placeholder="비밀번호를 입력해주세요" name="pw" readonly>
+            <span id="login">
+                <h2><i class="fa-solid fa-lock-open"></i>&nbsp;로그인하기</h2>
+                <form action="" method="POST">
+                    <span class="log_input_wrap">
+                        <div class="log_email_wrap">
+                            <label for="email">EMAIL : </label>
+                            <input type="email" id="email" name="email" placeholder="이메일을 입력해주세요" name="id" required>
+                        </div>
+                        <div class="log_pwd_wrap">
+                            <label for="pwd">Password : </label>
+                            <input type="password" id="pwd" name="pwd" placeholder="비밀번호를 입력해주세요" name="pw" required>
+                        </div>
                     </span>
-                    <span class="log_btn" style="height:100px; width:200px; border:0.1px dashed blue;">
+                    <span class="log_btn_wrap">
                         <button type="submit">로그인하기</button>
                     </span>
                 </form>
             </span>
-            <!-- /로그인 부분 -->
+        </div>
+    </header>
+
+    <!-- 네비게이션 영역 -->
+    <nav>
+        <div class="nav_bar_wrap">
+            <ul>
+                <li><a href="">영화</a></li>
+                <li><a href="">극장</a></li>
+                <li><a href="">예매</a></li>
+                <li><a href="">커뮤니티</a></li>
+                <li><a href="">이벤트</a></li>
+                <li><a href="">혜택</a></li>
+            </ul>
         </div>
 
-        <!-- 네비게이션바 부분 -->
-        <div class="nav" style="border:0.5px dashed green; height:100px;">
-            <p>네비게이션바 들어가는 곳</p>
+        <div class="search"></div>
+            <input type="text" placeholder="영화 검색">
+            <button>검색</button>
         </div>
-        <!-- /네비게이션바 부분 -->
-    </div>
+    </nav>
 
-    <div id="container" style="border:0.5px dashed blue; height:600px;">
+    <main>
+        <div id="content">
+
+        </div>
         <p>콘텐츠 들어가는 곳</p>
-    </div>
+    </main>
 
-    <div id="footer" style="border:0.5px dashed red; height:200px;">
-        <p>푸터 들어가는 곳</p>
-    </div>
-
-    <a href="https://takgeunoh.github.io/HTML/index(takgeun).html">WEB 수업</a>
-    <a href="https://takgeunoh.github.io/HTML/2022_02_11_report_amend_ver.html">HTML 수업</a>
+    <footer>
+        <p>풋터 들어가는 곳</p>
+    </footer>
 </body>
 </html>

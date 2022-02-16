@@ -1,73 +1,114 @@
-/* 배너 이미지 공간 */
+header {
+    border:0.5px dashed red;
+}
+
+nav {
+    border:0.1px dashed blue;
+    /* background-color: #FF9100; */
+    left:0;
+    position : sticky;
+    top:0;
+}
+
+main {
+    border:0.5px dashed #FF9100;
+    height : 1000px;
+}
+
+footer {
+    border:0.5px dashed black;
+}
+
+/* 상단 배너 영역 */
 .banner > a > img {
     width:100%;
     height:100%;
 }
-/* /배너 이미지 공간 */
 
-/* 로고 이미지 공간 */
+/* sub_header 영역 */
+.sub_header {
+    height:200px;
+    border:0.1px dashed yellow;
+}
 .logo_img {
+    border : 0.1px dashed red;
     display:inline-block;
     /* a 태그도 인라인태그니까 인라인 배치하면서 블록으로 설정하여 크기 조정하려는 의도 */
-    position: absolute;
-    /* 부모요소인 div(sub_header)의 위치를 기준으로 앞으로 배치할 inline-block 요소들의 위치를 배정하기 위한 의도로 absolute값으로 포지션을 주었다. */
+    padding:40px 30px;
+    /* 로고 이미지(a태그)를 수직,수평으로 가운데 정렬한다.(패딩으로 모든 방향의 값을 같게 줌) */
+    /* background-color: black; */
 }
-.logo_img > img {
-    margin-top :40px;
-}
-/* /로고 이미지 공간 */
 
-/* 로그인 공간 */
+/* 로그인 영역 */
 #login {
-    position : absolute;
-    right:10px;
+    /* display: inline-block; */
+    /* inline-block 값을 주었지만 밑에 있는 float속성이 block을 무시한다는 경고문이 등장하여 제거하였음. */
+    position : relative;   /* 부모영역은 sub_header */
+    top : 0px;
+    float: right;
+    /* float 속성을 right로 줌으로써 span태그인 login을 오른쪽에 떠있게 한 것 */
+    /* 주관적으로 정리하자면 inline-block이 적용되면 발생하는 공백 문제를 해결할 때 float 속성을 떠올리면 될 것 같다..? */
+    background-color:#B9E2FA;
 }
 #login > h2 {
     position : relative;
     left : 50px;
+    /* 부모요소인 login을 기준으로 위치 정렬 */
 }
 #login > form{
-    /* display: table-cell;
-    width:200px;
-    height:200px;
-    vertical-align: middle;
-    background-color: brown; */
-    /* 위 방법은 span 내 요소들의 수직정렬이 깔끔하게 되지만 inline 이 아니라서 오른쪽으로 로그인버튼 배치가 안된다는 문제가 있음... */
-
-    /* 로그인 버튼의 우측배치를 위한 inline-block에서의 수직정렬 방법(출처 : https://velog.io/@ursr0706/vertical-align)
-    vertical-align 속성이 실제로 inline-block 내에서 적용이 안되는 것이 아니라 위아래로 활동할 수 있는 영역이 좁아서 적용이 안되는 것처럼 보인 것.
-    inline-block 포지션을 준 요소의 활동할 수 있는 영역을 부모 요소의 높이만큼 설정하라. 어떻게? line-height를 이용*/
+    /* form은 block 태그 */
+    background-color: gray;
+}
+.log_input_wrap {
     display: inline-block;
-    line-height:40px;
-    vertical-align: middle;
-    /* background-color: red; */
     position : relative;
-    left : 50px;
-}
-.log_btn {
-    /* span이니까 inline 태그 상태 */
-    position : relative;
-    top:-30px;
-    left:40px;
+    /* 부모요소인 폼태그를 기준으로 위치 정렬 */
+    padding : 30px 10px;
     /* background-color: red; */
 }
-button {
+.log_email_wrap {
+    margin : 10px;
+    /* 라벨과 인풋 사이 넓히기 */
+}
+.log_btn_wrap {
+    display: inline-block;
+    position:relative;          /* 부모요소는 form */
+    bottom : 20px;
+    /* background-color: green; */
+}
+.log_btn_wrap > button {
     background-color: brown;
     color: aliceblue;
     padding : 20px;
     margin: 10px 10px;
 }
-/* /로그인 공간 */
 
-.nav > p {
-    text-align: center;
-    line-height: 100px;
+/* 네비게이션바 영역 */
+.nav_bar_wrap {
+    position:relative;
+    /* 부모요소인 nav태그를 기준으로 정렬할 생각 */
+    display:inline-block;
+    width : 70%;
+    background-color: yellow;
 }
-#container > p {
-    text-align : center;
-    line-height: 500px;
+
+.nav_bar_wrap > ul > li {
+    display: inline-block;
+    /* ul이 블록레벨이니까 inline으로 줘서 좌우로 펼치게 */
+    list-style-type: none;
+    margin : 0px 20px;
 }
-#footer > p {
+
+.nav_bar_wrap > ul > li > a {
+    display : block;
+    /* a 태그가 인라인이니까 크기 조절을 위해 block */
+    width : 70px;
+    padding : 10px;
     text-align: center;
-    line-height: 200px;
+    /* background-color: red; */
+}
+
+.search {
+    display: inline-block;
+    margin : 0px 40px;
 }
