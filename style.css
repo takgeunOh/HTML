@@ -1,3 +1,7 @@
+body {
+    margin : 0;
+}
+
 header {
     border:0.5px dashed red;
 }
@@ -47,6 +51,8 @@ footer {
     top : 0px;
     float: right;
     /* float 속성을 right로 줌으로써 span태그인 login을 오른쪽에 떠있게 한 것 */
+    /* block 레벨의 요소를 가로로 정렬하기 위해 쓰인다고 한다. */
+    /* 그렇기 때문에 position 에 absolute를 주어서 고정시키는 것은 float과 충돌하기 때문에 absolute 적용에 주의해야한다. */
     /* 주관적으로 정리하자면 inline-block이 적용되면 발생하는 공백 문제를 해결할 때 float 속성을 떠올리면 될 것 같다..? */
     background-color:#B9E2FA;
 }
@@ -91,24 +97,53 @@ footer {
     width : 70%;
     background-color: yellow;
 }
-
 .nav_bar_wrap > ul > li {
     display: inline-block;
     /* ul이 블록레벨이니까 inline으로 줘서 좌우로 펼치게 */
     list-style-type: none;
     margin : 0px 20px;
 }
-
 .nav_bar_wrap > ul > li > a {
     display : block;
     /* a 태그가 인라인이니까 크기 조절을 위해 block */
     width : 70px;
     padding : 10px;
     text-align: center;
+    text-decoration-line: none;
+    color : black;
     /* background-color: red; */
 }
-
 .search {
     display: inline-block;
     margin : 0px 40px;
+}
+
+
+/* 콘텐츠 영역 */
+#trailer {
+    z-index : -1;
+}
+#trailer_description {
+    background-color: #333;
+    position : absolute;
+    top : 90%;
+    left : 10%;
+    padding : 10px 50px;
+    width : 400px;
+    opacity: 0.7;
+}
+
+#trailer_description > p, #trailer_description > h2 {
+    color :aliceblue;
+}
+
+#trailer_description > ul > li {
+    display: inline-block;
+    list-style-type: none;
+    margin : 0 20px;
+}
+
+#trailer_description > ul > li > a {
+    text-decoration-line: none;
+    color :aliceblue;
 }
