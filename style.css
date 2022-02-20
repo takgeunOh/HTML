@@ -20,7 +20,7 @@ nav {
 
 main {
     border:0.5px dashed #FF9100;
-    height : 1000px;
+    height : 100%;
 }
 
 footer {
@@ -120,7 +120,11 @@ footer {
 .search {
     display: inline-block;
     margin : 0px 40px;
-} flex를 이용하여 다시 작성할 것 */
+} flex를 이용하여 다시 작성할 거라 모두 주석처리 */
+
+#nav_bar {
+    background-color: blueviolet;
+}
 
 .nav_bar_wrap {
     display : flex;
@@ -202,4 +206,50 @@ footer {
 #trailer_description > ul > li > a {
     text-decoration-line: none;
     color :aliceblue;
+}
+
+/* 무비차트 영역 */
+
+.tap_button_wrap {
+    margin-top : 30px;
+}
+.tap_button_wrap > h2 {
+    display: inline-block;
+    margin : 0 20px;
+}
+.tap_button_wrap > h2 > a {
+    text-decoration-line: none;
+    color : black;
+    font-size: 1em;
+}
+
+#movie_chart_list {
+    display: flex;
+    justify-content: space-around;
+    margin-top : 20px;
+}
+
+#movie_chart_list_wrap {
+    display: flex;
+    width : 80vw;
+    justify-content: space-around;
+    /* background-color: #333; */
+}
+.chart_list {
+    display: flex;
+    flex-direction: column;
+    /* background-color: #333; */
+}
+.list_img > a > img {
+    width : 200px;
+    height : 210px;
+}
+.list_description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.satisfaction {
+    margin-right:10px;
 }

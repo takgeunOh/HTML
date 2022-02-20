@@ -5,7 +5,9 @@
     <!-- 2022_02_20 업데이트
     - 스크롤 시 네비게이션바 비활성화되는 현상을 nav 태그에 z-index값을 높게 주어서 해결하였음
     - 브라우저 크기에 유동적으로 대처하기 위해 nav태그에 flex를 이용하여 코드를 다시 작성하였음
-    - 백그라운드 영상 2차 개선(브라우저 해상도에 대응하기 위함) -->
+    - 백그라운드 영상 2차 개선(브라우저 해상도에 대응하기 위함)
+    - 무비차트 콘텐츠 추가
+     -->
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +15,7 @@
     <title>영화예매사이트(메인페이지)</title>
 
     <link rel='stylesheet' type='text/css' href='style.css' />
+    <script type="text/javascript" src="javascript.js"></script>
 
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
     <script src="//code.jquery.com/jquery-latest.min.js"></script>
@@ -63,7 +66,7 @@
     </header>
 
     <!-- 네비게이션 영역 -->
-    <nav>
+    <nav id="nav_bar">
         <div class="nav_bar_wrap">
             <ul>
                 <li><a href="">영화</a></li>
@@ -124,7 +127,7 @@
         - 출처 : https://stackoverflow.com/questions/24579785/force-iframe-youtube-video-to-center-fit-and-full-cover-the-screen-in-the-backgr -->
         <div id="trailer_2">
             <iframe
-            src="https://www.youtube.com/embed/mI9oyFMUlfg?mute=1&loop=1&autoplay=1&controls=0" ></iframe>
+            src="https://www.youtube.com/embed/mI9oyFMUlfg?mute=1&loop=1&autoplay=1&controls=0&playlist=mI9oyFMUlfg&loop=1" ></iframe>
         </div>
 
         <div id="trailer_description">
@@ -138,6 +141,90 @@
                 <li><a href="">예매하기</a></li>
                 <li><button type="button"><i class="fa-solid fa-play"></i></button></li>
             </ul>
+        </div>
+
+        <div id="movie_chart">
+            <div class="movie_chart_tap_wrap">
+                <div class="tap_button_wrap">
+                    <h2><a href="">무비차트</a></h2>
+                    <h2><a href="">|&nbsp;&nbsp;상영예정작</a></h2>
+                </div>
+            </div>
+
+            <div id="movie_chart_list">
+                <div id="movie_chart_list_wrap">
+                    <div class="chart_list">
+                        <div class="list_img">
+                            <a href="" target="_self"><img src="../data/테스트이미지.png"></a>
+                        </div>
+                        <div class="list_description">
+                            <div class="movie_name">
+                                <strong class="movie_name">더 배트맨</strong>
+                            </div>
+                            <div class="movie_favorite">
+                                <span class="satisfaction"><i class="fa-solid fa-egg"></i> 99%</span>
+                            <span class="ticketing_ratio">예매율28.4%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart_list">
+                        <div class="list_img">
+                            <a href="" target="_self"><img src="../data/테스트이미지.png"></a>
+                        </div>
+                        <div class="list_description">
+                            <div class="movie_name">
+                                <strong class="movie_name">극장판 주술회전 0</strong>
+                            </div>
+                            <div class="movie_favorite">
+                                <span class="satisfaction"><i class="fa-solid fa-egg"></i> 95%</span>
+                            <span class="ticketing_ratio">예매율23.7%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart_list">
+                        <div class="list_img">
+                            <a href="" target="_self"><img src="../data/테스트이미지.png"></a>
+                        </div>
+                        <div class="list_description">
+                            <div class="movie_name">
+                                <strong class="movie_name">언차티드</strong>
+                            </div>
+                            <div class="movie_favorite">
+                                <span class="satisfaction"><i class="fa-solid fa-egg"></i> 90%</span>
+                            <span class="ticketing_ratio">예매율19.7%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart_list">
+                        <div class="list_img">
+                            <a href="" target="_self"><img src="../data/테스트이미지.png"></a>
+                        </div>
+                        <div class="list_description">
+                            <div class="movie_name">
+                                <strong class="movie_name">안테벨룸</strong>
+                            </div>
+                            <div class="movie_favorite">
+                                <span class="satisfaction"><i class="fa-solid fa-egg"></i> 99%</span>
+                            <span class="ticketing_ratio">예매율6.3%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart_list">
+                        <div class="list_img">
+                            <a href="" target="_self"><img src="../data/테스트이미지.png"></a>
+                        </div>
+                        <div class="list_description">
+                            <div class="movie_name">
+                                <strong class="movie_name">인민을 위해 복무하라</strong>
+                            </div>
+                            <div class="movie_favorite">
+                                <span class="satisfaction"><i class="fa-solid fa-egg"></i> 96%</span>
+                            <span class="ticketing_ratio">예매율6.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
