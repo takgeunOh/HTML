@@ -2,16 +2,20 @@ body {
     margin : 0;
 }
 
+
 header {
     border:0.5px dashed red;
 }
 
 nav {
     border:0.1px dashed blue;
-    /* background-color: #FF9100; */
     left:0;
     position : sticky;
     top:0;
+    z-index:100;
+    display : flex;
+    align-items: center;
+    justify-content:space-around;
 }
 
 main {
@@ -90,39 +94,91 @@ footer {
 }
 
 /* 네비게이션바 영역 */
+
+/*
 .nav_bar_wrap {
     position:relative;
-    /* 부모요소인 nav태그를 기준으로 정렬할 생각 */
+    /* 부모요소인 nav태그를 기준으로 정렬할 생각 
     display:inline-block;
     width : 70%;
-    background-color: yellow;
 }
 .nav_bar_wrap > ul > li {
     display: inline-block;
-    /* ul이 블록레벨이니까 inline으로 줘서 좌우로 펼치게 */
+    /* ul이 블록레벨이니까 inline으로 줘서 좌우로 펼치게 
     list-style-type: none;
     margin : 0px 20px;
 }
 .nav_bar_wrap > ul > li > a {
     display : block;
-    /* a 태그가 인라인이니까 크기 조절을 위해 block */
+    /* a 태그가 인라인이니까 크기 조절을 위해 block 
     width : 70px;
     padding : 10px;
     text-align: center;
     text-decoration-line: none;
     color : black;
-    /* background-color: red; */
 }
 .search {
     display: inline-block;
     margin : 0px 40px;
+} flex를 이용하여 다시 작성할 것 */
+
+.nav_bar_wrap {
+    display : flex;
+}
+
+.nav_bar_wrap > ul {
+    display: flex;
+}
+
+.nav_bar_wrap > ul > li {
+    display: inline-block;
+    list-style-type: none;
+    margin : 0 50px;
+}
+
+.nav_bar_wrap > ul > li > a {
+    text-decoration-line: none;
+    color : black;
+    font-size : 1rem;
 }
 
 
 /* 콘텐츠 영역 */
-#trailer {
+/* #trailer {
     z-index : -1;
+    width : 100%;
+    height : 100%;
+} */
+
+#trailer_2 {
+    position:relative;
+    overflow: hidden;
+    width:100vw;
+    height:100vh;
 }
+
+#trailer_2 > iframe {
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    width : 100vw;
+    height : 100vh;
+    transform : translate(-50%, -50%);
+}
+/* 미디어쿼리 이용 */
+@media (min-aspect-ratio: 16/9) {  /* 뷰포트 너비가 16/9 비율 이상이면 실행 */
+    #trailer_2 > iframe {
+      /* height = 100 * (9 / 16) = 56.25 */
+      height: 56.25vw;
+    }
+}
+@media (max-aspect-ratio: 16/9) {   /* 뷰포트 너비가 16/9 비율 이하면 실행 */
+    #trailer_2 > iframe {
+      /* width = 100 / (9 / 16) = 177.777777 */
+      width: 177.78vh;
+    }
+}
+
 #trailer_description {
     background-color: #333;
     position : absolute;

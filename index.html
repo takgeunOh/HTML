@@ -2,18 +2,10 @@
 <html lang="en">
 <head>
 
-    <!-- 2022_02_17 업데이트
-    - body 태그에 margin값을 0으로 줘서 웹페이지가 꽉 차게 출력되게 함
-    - a태그에 있는 텍스트 색상과 밑줄 제거
-    - main 태그에 백그라운드 영상 적용 (jQuery.mb.YTPlayer 이용)
-    - 백그라운드 영상 위에 description 추가
-    -->
-
-    <!-- 2022_02_18에 개선 및 추가/수정해야할 점
-    - YTPlayer를 이용해 백그라운드 영상을 적용하였을 때 다른 요소를 침범하는 문제 확인 필요
-        - 해결이 어려울 경우 YTPlayer 말고 다른 방법 찾아보기
-    - main태그에 무비차트, 이벤트를 가로 리스트 형식으로 구현할 것
-    - 리스트 부분에서 필요 시 슬라이드 기능 추가해보기 -->
+    <!-- 2022_02_20 업데이트
+    - 스크롤 시 네비게이션바 비활성화되는 현상을 nav 태그에 z-index값을 높게 주어서 해결하였음
+    - 브라우저 크기에 유동적으로 대처하기 위해 nav태그에 flex를 이용하여 코드를 다시 작성하였음
+    - 백그라운드 영상 2차 개선(브라우저 해상도에 대응하기 위함) -->
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,9 +14,9 @@
 
     <link rel='stylesheet' type='text/css' href='style.css' />
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
     <script src="//code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/jquery.mb.YTPlayer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/jquery.mb.YTPlayer.min.js"></script> -->
     <!-- 자연스러운 백그라운드 영상 재생을 위해 jQuery.mb.YTPlayer 사용을 위해 CSS 호출
     출처 : https://urliveblogger.blogspot.com/2021/01/jquery-mb-YTplayer.html -->
 
@@ -83,7 +75,7 @@
             </ul>
         </div>
 
-        <div class="search"></div>
+        <div class="search">
             <input type="text" placeholder="영화 검색">
             <button>검색</button>
         </div>
@@ -99,13 +91,12 @@
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div> -->
 
-        <!-- * 개선 방식
+        <!-- * 1차 개선 방식
         - 유튜브 UI를 없애고 영상 자체만 보이게 하여 백그라운드 영상에 적합할 것
         - 이를 위해 jQuery.mb.YTPlayer 이용
-        - 문제점 : 영상 자체가 네비게이션바 버튼을 방해하고 description이 네비게이션바를 침범함..
+        - 문제점 : 브라우저 해상도를 높게 하면 영상의 너비가 100% 채워지지 않는 문제점 발생
         -->
-
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             jQuery( function() {
                 jQuery( '#trailer' ).YTPlayer();
                 }
@@ -117,13 +108,23 @@
             showControls: false,
             useOnMobile: true,
             quality: 'highres',
-            containment: 'self',
+            containment: '#trailer',
             loop: true,
             autoPlay: true,
             stopMovieOnBlur: false,
             startAt: 0,
-            opacity : 1
+            opacity : 1,
+            abundance : 0.11,
         }">
+        </div> -->
+
+        <!-- 2차 개선 방식 (핵심키워드 : transform, 미디어쿼리)
+        - 유튜브에서 링크를 동일하게 가져오되 가져오는 링크에서 스타일 관련된 코드는 모두 지우고
+        - 직접 css를 통해 iframe 내에 보여지는 영상의 크기와 위치를 조정하여 유튜브 관련 로고를 전부 가리게 함
+        - 출처 : https://stackoverflow.com/questions/24579785/force-iframe-youtube-video-to-center-fit-and-full-cover-the-screen-in-the-backgr -->
+        <div id="trailer_2">
+            <iframe
+            src="https://www.youtube.com/embed/mI9oyFMUlfg?mute=1&loop=1&autoplay=1&controls=0" ></iframe>
         </div>
 
         <div id="trailer_description">
