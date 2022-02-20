@@ -7,17 +7,6 @@ header {
     border:0.5px dashed red;
 }
 
-nav {
-    border:0.1px dashed blue;
-    left:0;
-    position : sticky;
-    top:0;
-    z-index:100;
-    display : flex;
-    align-items: center;
-    justify-content:space-around;
-}
-
 main {
     border:0.5px dashed #FF9100;
     height : 100%;
@@ -123,10 +112,19 @@ footer {
 } flex를 이용하여 다시 작성할 거라 모두 주석처리 */
 
 #nav_bar {
+    border:0.1px dashed blue;
+    left:0;
+    position : sticky;
+    top:0;
+    display : flex;
+    align-items: center;
+    justify-content:space-around;
+    z-index:100;
     background-color: blueviolet;
 }
 
 .nav_bar_wrap {
+    /* z-index:100; */
     display : flex;
 }
 
@@ -159,6 +157,7 @@ footer {
     overflow: hidden;
     width:100vw;
     height:100vh;
+    z-index:-1; /* 영상 클릭 시 재생중지되는 것을 막기 위해 뒤로 숨김 */
 }
 
 #trailer_2 > iframe {
