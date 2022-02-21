@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 
-    <!-- 2022_02_20 업데이트
-    - 스크롤 시 네비게이션바 비활성화되는 현상을 nav 태그에 z-index값을 높게 주어서 해결하였음
-    - 브라우저 크기에 유동적으로 대처하기 위해 nav태그에 flex를 이용하여 코드를 다시 작성하였음
-    - 백그라운드 영상 2차 개선(브라우저 해상도에 대응하기 위함)
-    - 무비차트 콘텐츠 추가
+    <!-- 2022_02_22 업데이트
+        - 무비차트 탭 영역에 vertical line 구현 (div태그 이용)
+        - 무비차트 이미지 영역 모서리를 둥글게 구현
+        - 이벤트 영역을 전부 그리드를 이용하여 레이아웃
+        - 그리드를 적용하였을 때 말줄임 적용(이벤트 영역)
      -->
 
     <meta charset="UTF-8">
@@ -15,7 +15,6 @@
     <title>영화예매사이트(메인페이지)</title>
 
     <link rel='stylesheet' type='text/css' href='style.css' />
-    <script type="text/javascript" src="javascript.js"></script>
 
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
     <script src="//code.jquery.com/jquery-latest.min.js"></script>
@@ -142,11 +141,13 @@
             </ul>
         </div>
 
+        <!-- 무비차트 영역은 플렉스로 구현 -->
         <div id="movie_chart">
             <div class="movie_chart_tap_wrap">
                 <div class="tap_button_wrap">
                     <h2><a href="">무비차트</a></h2>
-                    <h2><a href="">|&nbsp;&nbsp;상영예정작</a></h2>
+                    <div class="vertical_line"></div>
+                    <h2><a href="">상영예정작</a></h2>
                 </div>
             </div>
 
@@ -220,6 +221,64 @@
                                 <span class="satisfaction"><i class="fa-solid fa-egg"></i> 96%</span>
                             <span class="ticketing_ratio">예매율6.2%</span>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 이벤트 영역은 최대한 전부 그리드로 구현해보기 -->
+        <div id="event_list_container">
+            <div id="event_list_wrap">
+                <div id="event_title_wrap">
+                    <div class="event_title"><h1>EVENT</h1></div>
+                    <div class="event_pause_btn"><a href=""><i class="fa-solid fa-pause"></i></a></div>
+                    <div class="event_all_view_btn"><a href="">전체보기 <i class="fa-solid fa-angle-right"></i></a></div>
+                </div>
+                <div id="event_img_wrap">
+                    <div class="event_list">
+                        <div class="event_list_img">
+                            <a href="" target="_self"><img src="../data/테스트이미지.png"></a>
+                        </div>
+                        <div class="event_list_description">
+                            <div class="event_description_title"><span>[언차티드]CGV 필름마크</span></div>
+                            <div class="event_description_date"><span>2022.02.09~2022.03.06</span></div>
+                        </div>
+                    </div>
+                    <div class="event_list">
+                        <div class="event_list_img">
+                            <a href="" target="_self"><img src="../data/테스트이미지.png"></a>
+                        </div>
+                        <div class="event_list_description">
+                            <div class="event_description_title"><span>[언차티드]4DX 리미티드 포스터</span></div>
+                            <div class="event_description_date"><span>2022.02.10~2022.02.28</span></div>
+                        </div>
+                    </div>
+                    <div class="event_list">
+                        <div class="event_list_img">
+                            <a href="" target="_self"><img src="../data/테스트이미지.png"></a>
+                        </div>
+                        <div class="event_list_description">
+                            <div class="event_description_title"><span>[극장판 주술회전 0]CGV 필름마크</span></div>
+                            <div class="event_description_date"><span>2022.02.18~2022.03.06</span></div>
+                        </div>
+                    </div>
+                    <div class="event_list">
+                        <div class="event_list_img">
+                            <a href="" target="_self"><img src="../data/테스트이미지.png"></a>
+                        </div>
+                        <div class="event_list_description">
+                            <div class="event_description_title"><span>[더 배트맨]]CGV 필름마크</span></div>
+                            <div class="event_description_date"><span>2022.02.21~2022.03.20</span></div>
+                        </div>
+                    </div>
+                    <div class="event_list">
+                        <div class="event_list_img">
+                            <a href="" target="_self"><img src="../data/테스트이미지.png"></a>
+                        </div>
+                        <div class="event_list_description">
+                            <div class="event_description_title"><span>[화제의 신메뉴]]시그니처김치시즈닝믹스팝콘 런칭!</span></div>
+                            <div class="event_description_date"><span>2022.02.09~2022.03.06</span></div>
                         </div>
                     </div>
                 </div>
