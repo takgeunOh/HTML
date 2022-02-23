@@ -210,7 +210,7 @@ footer {
 }
 
 /* 무비차트 영역 */
-#movie_chart {
+/* #movie_chart {
     padding : 20px 0px;
     background-color:beige;
 }
@@ -241,12 +241,10 @@ footer {
     display: flex;
     width : 80vw;
     justify-content: space-around;
-    /* background-color: #333; */
 }
 .chart_list {
     display: flex;
     flex-direction: column;
-    /* background-color: #333; */
 }
 .list_img > a > img {
     width : 200px;
@@ -271,16 +269,50 @@ footer {
 @media (hover:hover) {
     .tap_button_wrap > h2 > a {
         color:#FF9100;
-        /* 마우스를 올리지 않았는데 텍스트 색상이 주황색으로 변해져있음. 확인 필요 */
     }
 }
 @media screen and (orientation:portrait) {
-    /* 세로모드일 때 아래를 실행 */
     #movie_chart_list_wrap {
         flex-direction: column;
         align-items: center;
     }
+} */
+
+@media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
 }
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+    
+    .carousel-inner .carousel-item-end.active,
+    .carousel-inner .carousel-item-next {
+      transform: translateX(25%);
+    }
+    
+    .carousel-inner .carousel-item-start.active, 
+    .carousel-inner .carousel-item-prev {
+      transform: translateX(-25%);
+    }
+}
+
+.carousel-inner .carousel-item-end,
+.carousel-inner .carousel-item-start { 
+  transform: translateX(0);
+}
+
+
 
 /* 이벤트 영역 */
 #event_list_wrap {
