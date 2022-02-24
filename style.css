@@ -210,7 +210,7 @@ footer {
 }
 
 /* 무비차트 영역 */
-/* #movie_chart {
+#movie_chart {
     padding : 20px 0px;
     background-color:beige;
 }
@@ -232,6 +232,7 @@ footer {
     height:32px;
     position : absolute;
 }
+/*
 #movie_chart_list {
     display: flex;
     justify-content: space-around;
@@ -277,7 +278,6 @@ footer {
         align-items: center;
     }
 } */
-
 @media (max-width: 767px) {
     .carousel-inner .carousel-item > div {
         display: none;
@@ -291,6 +291,8 @@ footer {
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
     display: flex;
+    justify-content: center;
+    
 }
 
 /* medium and up screens */
@@ -311,7 +313,57 @@ footer {
 .carousel-inner .carousel-item-start { 
   transform: translateX(0);
 }
+#recipeCarousel {
+    display: flex;
+    justify-content: center;
+}
+.carousel-inner {
+    width:80vw;
+}
 
+.col-md-2 {
+    margin : 0 10px;
+    width : 200px;
+}
+.card-rating {
+    position : absolute;
+    font-weight: 400;
+    font-size:50px;
+    font-style:italic;
+    color:aliceblue;
+    left:9px;
+    top : 120px;
+    background-color: #333;
+    width:30px;
+    line-height: 1em;
+    border-radius: 50px;
+}
+.card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.card-description {
+    display: inline-block;
+}
+.movie_chart_prev {
+    width : 2vw;
+    position : absolute;
+    left : 8%;
+    background-color:#ce5606d0;
+}
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e")
+}
+.movie_chart_next {
+    width : 2vw;
+    position : absolute;
+    right : 8%;
+    background-color:#ce5606d0;
+}
+.carousel-control-next-icon {
+    background-color: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+}
 
 
 /* 이벤트 영역 */
