@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/d36fd224dd.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- 2022-02-26 업데이트
+    - navbar와 캐러셀 링크(연지쌤 리팩토링)
+        1) 캐러셀의 가장 바깥 div의 id를 지정한다.
+        2) 캐러셀 아이템 태그에 슬라이드 번호를 지정한다.
+        2) navbar의 a태그에 데이터를 서로 주고받을 캐러셀의 id를 타겟한다.
+        3) navbar의 a태그에 타겟으로 하는 캐러셀의 슬라이드 번호를 지정한다.
+    - 부트스트랩 예제로 공부 시 부트스트랩 버전명에 유의 (버전마다 속성명이 바뀌어있을 수 있으므로)
+    -->
+
+    <style>
+        /* html {
+            scroll-behavior: smooth;
+        } */
+        #header_title {
+            display: flex;
+            justify-content: center;
+        }
+        .card_img_wrap {
+            display: flex;
+            justify-content: center;
+            margin-top : 30px;
+        }
+        .card_title_wrap {
+            display: flex;
+            justify-content: center;
+        }
+        .card_description_wrap {
+            display: flex;
+            justify-content: center;
+        }
+        .card_img_overlay_wrap {
+            width : 20vw;
+            height : 10vw;
+            position : absolute;
+            top : 37%;
+            left : 40%;
+            opacity: 0.8;
+            display : flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card_img_overlay_wrap > a {
+            text-decoration: none;
+            color :aliceblue;
+        }
+        .control_prev_icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
+        }
+        .control_next_icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="header_title">
+            <h1>내가 좋아하는 노래 발라드</h1>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand">노래 목록</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-lg-0">
+                <li class="nav-item mb-2">
+                    <!-- <a class="nav-link active" aria-current="page" href="#">미친 게 아니라구요</a> -->
+                    <!-- 위 부분은 class에 active를 줌으로써 첫 화면에 a태그가 활성화된 모습으로 보이게 한 것 -->
+                    <a class="nav-link" aria-current="page" data-bs-target="#recipeCarousel" data-bs-slide-to="0">미친 게 아니라구요</a>
+                    <!-- aria-current="page"는 현재 보여지는 창에서 해당하는 부분이 기본적으로 보여지도록 설정하는 것 같다.
+                    네비게이션과 캐러셀 연결 후 확인해볼 것 -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-target="#recipeCarousel" data-bs-slide-to="1">사랑은지날수록더욱선명하게남아</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-bs-target="#recipeCarousel" data-bs-slide-to="2">오래된노래</a>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="item carousel-item active" data-slide-no="0">
+                    <div class="card">
+                        <div class="card-img-top card_img_wrap"><img src="data/미친게아니라구요.PNG" class="img-fluid"></div>
+                        <div class="card-img-overlay card_img_overlay_wrap">
+                            <button type="button" class="btn btn-secondary btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#first_img">
+                                가사보기
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title card_title_wrap"><i class="fa-solid fa-music"></i>&nbsp;미친 게 아니라구요</div>
+                            <div class="card-text card-description card_description_wrap"><small class="text-muted">손승연</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item carousel-item" data-slide-no="1">
+                    <div class="card">
+                        <div class="card-img-top card_img_wrap"><img src="data/사랑은지날수록더욱선명하게남아.PNG" class="img-fluid"></div>
+                        <div class="card-img-overlay card_img_overlay_wrap">
+                            <button type="button" class="btn btn-secondary btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#second_img">
+                                가사보기
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title card_title_wrap"><i class="fa-solid fa-music"></i>&nbsp;사랑은지날수록더욱선명하게남아</div>
+                            <div class="card-text card-description card_description_wrap"><small class="text-muted">전상근</small></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item carousel-item" data-slide-no="2">
+                    <div class="card">
+                        <div class="card-img-top card_img_wrap"><img src="data/오래된노래.PNG" class="img-fluid"></div>
+                        <div class="card-img-overlay card_img_overlay_wrap">
+                            <button type="button" class="btn btn-secondary btn-outline-warning btn-lg" data-bs-toggle="modal" data-bs-target="#third_img">
+                                가사보기
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title card_title_wrap"><i class="fa-solid fa-music"></i>&nbsp;오래된노래</div>
+                            <div class="card-text card-description card_description_wrap"><small class="text-muted">스탠딩에그</small></div>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon control_prev_icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next movie_chart_next" href="#recipeCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon control_next_icon" aria-hidden="true"></span>
+                </a>
+            </div>
+        </div>
+    
+        <!-- Modal -->
+        <div class="modal fade" id="first_img" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">미친 게 아니라구요</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    멍하니 서있다 버스를 놓치고
+                    택시 뒷자리에 지갑을 흘리고
+                    방금 울어놓고 왜 우는줄 모르고
+                    눈물이 나서 눈물 흘릴 뿐이고
+                    혼자 거울을 보면서 혼잣말을 하는게
+                    널 잊지 못하고 기다리는 게 몇달 째
+                    미친게 아니라구요 날 정말 사랑했다구요
+                    니가 없으니까 곁에 없으니까
+                    내 심장이 녹아 없어지는 기분
+                    난 후회하지않아 내게 잊으란말 말아
+                    내가 좀더 사랑해서 그런거라구요
+                    미친게 아니라구요
+                    바다를 보러가도 난 니가 생각나
+                    파도가 부서지듯 심장이 아파와
+                    아직도 나한텐 너밖에 없는데 없는데
+                    오 너는 없는데 이젠
+
+                    네 사랑의 방식들은 항시 내 목을 조여
+                    너와 또 다시 시작해야 할 만한 동기부여
+                    따윈 없어 내 눈에는 너 정말 아파보여
+                    잦은 집착과 의심 이 모든게 혹여
+                    사랑이었다 해도 그닥 달라질게 없어
+                    왜 마음 불편하게 애처럼 또 떼 써
+                    반복되는 만남과 이별에 나 지쳤어
+                    매달리고 애원해도 다시 볼 일 없어
+
+                    니가 없으니까 곁에 없으니까
+                    내 심장이 녹아 없어지는 기분
+                    난 후회하지 않아 내게 잊으란말 말아
+                    내가 좀 더 사랑해서 그런거라구요
+                    난 꿈을 꾸었죠 눈을 마주보면서
+                    웃고 있었던 우리 두사람
+                    어느샌가 나 혼자 외롭게 서있는 꿈
+                    흐르는 나의 눈물
+
+                    네가 미쳤다며 이 사랑을 네가 다 망쳤다며
+                    몰아 세우던 나의 말에 지쳐 그런거라면
+                    정말 미안해 그 여린 마음이 다쳤다면
+                    자꾸 어긋나는 감정 속에 상처 받은거라면
+                    왜 자꾸 습관처럼
+                    너를 밀어내는지 난 알수없지
+                    널 피해 쓴 우산은 왜 비가 새는지
+                    변하지 않은 사랑을 다시 꿰맬순 없는지
+                    가능하다면 되돌리고 싶어 이 맘 아는지
+
+                    니가 그리워서 너무 그리워서
+                    널 부르면서 눈물만 흘려도
+                    난 후회하지 않아 내게 잊으란 말 말아
+                    내가 좀 더 사랑해서 그런거라구요
+                    미친 게 아니라구요
+                    날 정말 사랑했다구요
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="second_img" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">사랑은지날수록더욱선명하게남아</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    편해지고 변해가고
+                    자연스러운 그런 과정
+                    시도 때도 없이 다투면서
+                    불안해진 마음
+                    더는 멀어지기 싫은데
+                    말 못 했던 얘기들을
+                    말해봐도 너의 한숨뿐
+                    쌓여왔던 오해가 깊어져
+                    나도 지쳤는데
+                    너는 아무 말이 없었어
+                    사랑은 지날수록 더욱 선명하게 남아
+                    우리의 감정이 모자라서 그랬었나 봐
+                    이별은 떠나볼수록 다시 깨닫게 해줘서
+                    아름다웠던 우리가 그리운데
+                    문득 지금 생각이 나
+                    무슨 이유인지 모르겠어
+                    아마도 널 사랑한 기억이
+                    감싸고 있나 봐
+                    너는 또 아무 말 없지만
+                    사랑은 지날수록 더욱 선명하게 남아
+                    우리의 감정이 모자라서 그랬었나 봐
+                    이별은 떠나볼수록 다시 깨닫게 해줘서
+                    아름다웠던 우리가 그리운데
+                    끝난 인연을 난 왜 이러는지
+                    가끔 한 번씩은 마주쳐줄래
+                    그렇게 해줘 그렇게 하면
+                    아주 조금은 괜찮을 거 같아
+                    사랑은 지날수록 더욱 흩어지지 않아
+                    좋았던 시간이 가득해서 그런 건가 봐
+                    이별의 시린 날들은 다시 깨닫게 해줘서
+                    아름다웠던 그때가 그리운데
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="modal fade" id="third_img" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">오래된노래</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    오래전에 함께듣던 노래가
+                    발걸음을 다시 멈춰서게 해
+                    이 거리에서 너를 느낄수있어
+                    널 이곳에서 꼭다시 만날것같아
+                    
+                    너일까봐 한번더 바라보고
+                    너일까봐 자꾸 돌아보게 돼
+                    어디선가 같은 노래를 듣고
+                    날 생각하며 너역시 멈춰있을까
+                    
+                    오래전에 함께듣던 노래가
+                    거리에서 내게 우연히 들려온것처럼
+                    살아가다 한번쯤 우연히 만날것같아
+                    사랑했던 그모습 그대로
+                    
+                    내 사랑이 그대로인것처럼
+                    발걸음이 여길 찾는것처럼
+                    꼭 만날꺼야 지금 이노래 처럼
+                    날 사랑하는 네맘도 같을테니까
+                    
+                    오래전에 함께듣던 노래가
+                    거리에서 내게 우연히 들려온것처럼
+                    살아가다 한번쯤 우연히 만날것같아
+                    사랑했던 그모습 그대로
+                    
+                    운명처럼 아니면 우연처럼
+                    우리가 다시 예전처럼 만날수 있다면
+                    너에게 나 해주고 싶은 말이 하나있어
+                    널다시는 놓치지 않을께
+                    
+                    오래전에 함께듣던 노래가
+                    거리에서 내게 우연히 들려온것처럼
+                    살아가다 한번쯤 우연히 만날것같아
+                    사랑했던 그모습 그대로
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
