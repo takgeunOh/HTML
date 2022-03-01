@@ -2,164 +2,66 @@ body {
     margin : 0;
 }
 
-
-header {
-    border:0.5px dashed red;
-}
-
 main {
-    border:0.5px dashed #FF9100;
+    /* border:0.5px dashed #FF9100; */
     height : 100%;
 }
 
-footer {
-    border:0.5px dashed black;
-}
-
 /* 상단 배너 영역 */
+.banner {
+    width : 100%;
+}
 .banner > a > img {
     width:100%;
     height:100%;
 }
 
-/* sub_header 영역 */
-.sub_header {
-    height:200px;
-    border:0.1px dashed yellow;
-}
-.logo_img {
-    border : 0.1px dashed red;
-    display:inline-block;
-    /* a 태그도 인라인태그니까 인라인 배치하면서 블록으로 설정하여 크기 조정하려는 의도 */
-    padding:40px 30px;
-    /* 로고 이미지(a태그)를 수직,수평으로 가운데 정렬한다.(패딩으로 모든 방향의 값을 같게 줌) */
-    /* background-color: black; */
-}
-
-/* 로그인 영역 */
-#login {
-    /* display: inline-block; */
-    /* inline-block 값을 주었지만 밑에 있는 float속성이 block을 무시한다는 경고문이 등장하여 제거하였음. */
-    position : relative;   /* 부모영역은 sub_header */
-    top : 0px;
-    float: right;
-    /* float 속성을 right로 줌으로써 span태그인 login을 오른쪽에 떠있게 한 것 */
-    /* block 레벨의 요소를 가로로 정렬하기 위해 쓰인다고 한다. */
-    /* 그렇기 때문에 position 에 absolute를 주어서 고정시키는 것은 float과 충돌하기 때문에 absolute 적용에 주의해야한다. */
-    /* 주관적으로 정리하자면 inline-block이 적용되면 발생하는 공백 문제를 해결할 때 float 속성을 떠올리면 될 것 같다..? */
-    background-color:#B9E2FA;
-}
-#login > h2 {
-    position : relative;
-    left : 50px;
-    /* 부모요소인 login을 기준으로 위치 정렬 */
-}
-#login > form{
-    /* form은 block 태그 */
-    background-color: gray;
-}
-.log_input_wrap {
-    display: inline-block;
-    position : relative;
-    /* 부모요소인 폼태그를 기준으로 위치 정렬 */
-    padding : 30px 10px;
-    /* background-color: red; */
-}
-.log_email_wrap {
-    margin : 10px;
-    /* 라벨과 인풋 사이 넓히기 */
-}
-.log_btn_wrap {
-    display: inline-block;
-    position:relative;          /* 부모요소는 form */
-    bottom : 20px;
-    /* background-color: green; */
-}
-.log_btn_wrap > button {
-    background-color: brown;
-    color: aliceblue;
-    padding : 20px;
-    margin: 10px 10px;
-}
-
 /* 네비게이션바 영역 */
 
-/*
-.nav_bar_wrap {
-    position:relative;
-    /* 부모요소인 nav태그를 기준으로 정렬할 생각 
-    display:inline-block;
-    width : 70%;
+.navbar-collapse {
+    width : 50%;
+    justify-content: space-around;
 }
-.nav_bar_wrap > ul > li {
-    display: inline-block;
-    /* ul이 블록레벨이니까 inline으로 줘서 좌우로 펼치게 
-    list-style-type: none;
-    margin : 0px 20px;
+.navbar .nav-item:hover .dropdown-menu {
+    display: block;
+    margin-top : 0;
 }
-.nav_bar_wrap > ul > li > a {
-    display : block;
-    /* a 태그가 인라인이니까 크기 조절을 위해 block 
-    width : 70px;
-    padding : 10px;
-    text-align: center;
-    text-decoration-line: none;
-    color : black;
+.navbar-nav {
+    gap : 28px;
 }
-.search {
-    display: inline-block;
-    margin : 0px 40px;
-} flex를 이용하여 다시 작성할 거라 모두 주석처리 */
-
-#nav_bar {
-    border:0.1px dashed blue;
-    left:0;
-    position : sticky;
-    top:0;
-    display : flex;
-    align-items: center;
-    justify-content:space-around;
-    z-index:100;
-    background-color: blueviolet;
+#bootstrap-overrides .nav-link.active {
+    /* bootstrap.css 보다 우선순위로 적용시키기 위해 body의 id값 이용 */
+    color :red;
+    font-weight: bold;
 }
-
-.nav_bar_wrap {
-    /* z-index:100; */
-    display:flex;
-    /* 나중에 배치를 위해 일단 선언 */
+/* .nav-link > ul > li:hover , .nav-link > .dropdown-menu > li > a:hover {
+    color : red;
+} */
+#bootstrap-overrides .nav-item > a:hover {
+    color : rgb(212, 120, 14);
+    font-weight : bolder;
 }
-
-.nav_bar_wrap > ul {
-    display: flex;
-    /* 나중에 배치를 위해 일단 선언 */
+#bootstrap-overrides .dropdown-item {
+    color :#455158;
 }
-
-.nav_bar_wrap > ul > li {
-    display: inline-block;
-    list-style-type: none;
-    margin : 0 50px;
+#bootstrap-overrides .navbar .dropdown-item:hover,
+#bootstrap-overrides .navbar .dropdown-item:focus {
+    color : rgb(212, 120, 14)
 }
-
-.nav_bar_wrap > ul > li > a {
-    text-decoration-line: none;
-    color : black;
-    font-size : 1rem;
+#bootstrap-overrides .navbar .dropdown-item:active {
+    color : #fff;
+    text-decoration: none;
+    background-color: #FF9100;
 }
 
 
 /* 콘텐츠 영역 */
-/* #trailer {
-    z-index : -1;
-    width : 100%;
-    height : 100%;
-} */
 
 #trailer_2 {
     position:relative;
     overflow: hidden;
     width:100vw;
-    height:100vh;
-    z-index:-1; /* 영상 클릭 시 재생중지되는 것을 막기 위해 뒤로 숨김 */
+    height:65vh;
 }
 
 #trailer_2 > iframe {
@@ -168,13 +70,14 @@ footer {
     left : 50%;
     width : 100vw;
     height : 100vh;
-    transform : translate(-50%, -50%);
+    transform : translate(-50%, -55%);
+    z-index:-1; /* 영상 클릭 시 재생중지되는 것을 막기 위해 뒤로 숨김 */
 }
 /* 미디어쿼리 이용 */
 @media (min-aspect-ratio: 16/9) {  /* 뷰포트 너비가 16/9 비율 이상이면 실행 */
     #trailer_2 > iframe {
       /* height = 100 * (9 / 16) = 56.25 */
-      height: 56.25vw;
+      height: 50.25vw;
     }
 }
 @media (max-aspect-ratio: 16/9) {   /* 뷰포트 너비가 16/9 비율 이하면 실행 */
@@ -186,16 +89,19 @@ footer {
 
 #trailer_description {
     background-color: #333;
-    position : absolute;
-    top : 90%;
+    position : absolute; /* 가장 가까운 상위요소(trailer_2)를 기준으로 배치 */
+    top : 25%;
     left : 10%;
-    padding : 10px 50px;
-    width : 400px;
+    padding : 20px 40px;
+    width : 30vw;
     opacity: 0.7;
+    z-index:2;
+    overflow: hidden;
 }
 
 #trailer_description > p, #trailer_description > h2 {
     color :aliceblue;
+    pointer-events: none;
 }
 
 #trailer_description > ul > li {
@@ -292,22 +198,9 @@ footer {
 .carousel-inner .carousel-item-prev {
     display: flex;
     justify-content: center;
-    
 }
 
-/* medium and up screens */
-@media (min-width: 768px) {
-    
-    .carousel-inner .carousel-item-end.active,
-    .carousel-inner .carousel-item-next {
-      transform: translateX(25%);
-    }
-    
-    .carousel-inner .carousel-item-start.active, 
-    .carousel-inner .carousel-item-prev {
-      transform: translateX(-25%);
-    }
-}
+
 
 .carousel-inner .carousel-item-end,
 .carousel-inner .carousel-item-start { 
@@ -347,28 +240,34 @@ footer {
     display: inline-block;
 }
 .movie_chart_prev {
-    width : 2vw;
+    top : 35%;
+    width : 5vw;
+    height : 7vh;
+    border-radius: 100%;
     position : absolute;
-    left : 8%;
-    background-color:#ce5606d0;
+    background-color:#e94d0531;
 }
-.carousel-control-prev-icon {
+#movie_chart_prev_icon {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e")
 }
 .movie_chart_next {
-    width : 2vw;
+    top : 35%;
+    width : 5vw;
+    height : 7vh;
+    border-radius: 100%;
     position : absolute;
-    right : 8%;
-    background-color:#ce5606d0;
+    background-color:#e94d0531;
 }
-.carousel-control-next-icon {
-    background-color: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
+#movie_chart_next_icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='black'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e")
 }
 
 
 /* 이벤트 영역 */
 #event_list_wrap {
     padding-left : 30px;
+    padding-top : 20px;
+    padding-bottom: 30px;
     display: grid;
     grid-template-rows: 1fr 3fr;
     background-color:#B9E2FA;
