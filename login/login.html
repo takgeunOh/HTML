@@ -11,7 +11,6 @@
     <link rel='stylesheet' type='text/css' href='../style.css' />
     <!-- bootstrap.css 밑에다가 style.css를 배치하여 내가 원하는 곳을 style.css를 이용하여 수정할 수 있도록 우선순위를 높임 -->
     <link href="login.css" rel="stylesheet">
-    <link type="text/javascript" href="../javascript.js" />
 
     <script src="https://kit.fontawesome.com/d36fd224dd.js" crossorigin="anonymous"></script>
 
@@ -69,6 +68,7 @@
         </div>
     </header>
 
+    <!-- 네비게이션바 영역 -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -134,28 +134,46 @@
         </div>
     </nav>
 
-    <main class="form-signin">
-        <form>
-          <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-    
-          <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">Email address</label>
-          </div>
-          <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">Password</label>
-          </div>
-    
-          <div class="checkbox mb-3">
-            <label>
-              <input type="checkbox" value="remember-me"> Remember me
-            </label>
-          </div>
-          <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-          <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
-        </form>
+    <!-- 로그인폼 영역 -->
+    <main class="text-center">
+        <div id="login-error-msg-holder">
+            <p id="login-error-msg">Invalid username <span id="error-msg-second-line">and/or password</span></p>
+        </div>
+        <div class="form-signin">
+            <form id="login-form">
+                
+                <i class="fa-solid fa-right-to-bracket"></i>
+                <h1 class="h3 mb-3 fw-normal">로그인</h1>
+                
+                <div class="form-floating">
+                  <input type="email" name="useremail" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                  <label for="floatingInput">Email address</label>
+                </div>
+                <script>
+
+                </script>
+                <div class="form-floating">
+                  <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                  <label for="floatingPassword">Password</label>
+                </div>
+          
+                <div class="checkbox mb-3">
+                  <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                  </label>
+                </div>
+                <a href="#">회원가입</a>
+                <a href="#">아이디 찾기</a>
+                <a href="#">비밀번호 찾기</a>
+
+                <button id="login_submit" class="login_btn w-100 btn btn-lg btn-warning" type="submit" value="Login">로그인</button>
+                <hr>
+            </form>
+            <h1>간편 로그인</h1>
+            <button class="login_btn_2 w-100 btn btn-lg btn-warning">구글 로그인</button>
+            <button class="login_btn_3 w-100 btn btn-lg btn-warning">네이버 로그인</button>
+            <button class="login_btn_4 w-100 btn btn-lg btn-warning">애플 로그인</button>
+        </div>
       </main>
 
     <div class="container-fluid">
@@ -174,5 +192,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- 자바스크립트는 바디의 맨 마지막에 넣어야 에러가 날 확률이 적음 -->
+    <script type="text/javascript" src="login.js"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@
 <head>
 
     <!-- 2022-03-01 Update
+
     - bootstrap을 이용한 header 영역 구현
     - bootstrap을 이용한 navigation 영역 구현
         > CSS 우선순위를 이용하여 커스텀하고자 하는 부분 구현(body 태그 바로 밑 참고)
@@ -12,7 +13,10 @@
         > description 배치 개선(브라우저 축소 시 트레일러 영상과 함께 움직이도록)
         > 과도한 트레일러 영역 높이를 줄임
     - bootstrap을 이용한 footer 영역 구현
-    - 로그인폼 레이아웃 초기 배치
+    - 로그인폼
+        > 레이아웃 구현
+        > Javascript를 이용한 유효성 검사 구현
+        
     -->
 
     <meta charset="UTF-8">
@@ -24,7 +28,6 @@
     <!-- bootstrap 사용을 위해 cdn 다운로드 -->
     <link rel='stylesheet' type='text/css' href='style.css' />
     <!-- bootstrap.css 밑에다가 style.css를 배치하여 내가 원하는 곳을 style.css를 이용하여 수정할 수 있도록 우선순위를 높임 -->
-    <link type="text/javascript" href="javascript.js" />
 
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.mb.YTPlayer/3.3.9/css/jquery.mb.YTPlayer.min.css">
     <script src="//code.jquery.com/jquery-latest.min.js"></script>
@@ -523,5 +526,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- 자바스크립트는 바디의 맨 마지막에 넣어야 에러가 날 확률이 적음 -->
+    <script type="text/javascript" src="javascript.js"></script>
 </body>
 </html>
