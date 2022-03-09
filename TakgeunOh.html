@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 
+    
+    <구현 기능>
+
+    - 상단 버튼 3개 클릭 시 작성한 3개의 차트 중 하나만 보이도록 설정
+    - [서울과 부산의 인구수 추이]에서 [부산 보기] 버튼 클릭 시 '서울 보기'로 버튼 텍스트 변경
+    - 배열에 2개의 데이터를 담아서 [부산 보기] or [서울 보기] 버튼 클릭 시 해당 데이터가 보이도록 애니메이션 설정
+    
+    -->
+
+
+    <style>
+        #lineChart2_wrap {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0;
+        }
+    </style>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <!-- LiniChart -->
+    <script type="text/javascript">
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Year', '서울특별시'],
+                ['2016', 9805506],
+                ['2017', 9741871],
+                ['2018', 9673936],
+                ['2019', 9639541],
+                ['2020', 9586195]
+            ]);
+
+            var options = {
+                title: '서울특별시 인구수 변화 추이 (2016 ~ 2020)',
+                curveType: 'function',
+                legend: {
+                    position: 'bottom'
+                },
+                width: 1200,
+                height: 600
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('lineChart1'));
+
+            chart.draw(data, options);
+        }
+    </script>
+
+    <!-- barChart -->
+    <script>
+        google.charts.load('current', {
+            packages: ['corechart']
+        });
+
+        function drawChart() {
+            // 차트 데이터와 옵션 정의하기
+            var data = google.visualization.arrayToDataTable([
+                ['Year', '서울특별시'],
+                ['2016년', 9805506],
+                ['2017년', 9741871],
+                ['2018년', 9673936],
+                ['2019년', 9639541],
+                ['2020년', 9586195]
+            ]);
+
+            var options = {
+                title: '서울특별시 인구수 변화 추이 (2016 ~ 2020)',
+                width: 1200,
+                height: 600
+            };
+
+            // 차트가 그려질 id요소를 설정하고 위에서 정의한 데이터와 옵션을 기반으로 차트 그리기
+            var chart = new google.visualization.BarChart(document.getElementById('bar_chart'));
+            chart.draw(data, options);
+        }
+        google.charts.setOnLoadCallback(drawChart);
+    </script>
+
+    <!-- LineChart_animation -->
+    <script>
+        google.load("visualization", "1", {
+            packages: ["corechart"]
+        });
+        google.setOnLoadCallback(init);
+
+        function init() {
+            var rowData1 = [
+                ['Year', '서울시'],
+                ['2016', 9805506],
+                ['2017', 9741871],
+                ['2018', 9673936],
+                ['2019', 9639541],
+                ['2020', 9586195]
+            ];
+            var rowData2 = [
+                ['Year', '부산시'],
+                ['2016', 3440484],
+                ['2017', 3416918],
+                ['2018', 3395278],
+                ['2019', 3372692],
+                ['2020', 3349016]
+            ];
+
+            var data = [];
+            data[0] = google.visualization.arrayToDataTable(rowData1);
+            data[1] = google.visualization.arrayToDataTable(rowData2);
+
+            var options = {
+                vAxis: {
+                    title: "인구수"
+                },
+                hAxis: {
+                    title: "Year"
+                },
+                animation: {
+                    duration: 1000,
+                    easing: 'out'
+                },
+            };
+            var current = 0;
+            var chart = new google.visualization.ComboChart(document.getElementById('lineChart2'));
+            // chart_div에 draw
+            var button = document.getElementById('chart_change_btn');
+            // 버튼 요소 받기
+
+            function drawChart() {
+                options['title'] = '연도에 따른 ' + (current ? '부산' : '서울') + '의 인구수 변화 추이 (2016 ~ 2020)';
+
+                chart.draw(data[current], options);
+                // current가 0인 데이터에 options로 draw
+            }
+            drawChart();
+
+            button.onclick = function () {
+                // 버튼 클릭 시 1에서 current를 빼주는 식으로 해서 data[0], data[1]로 왔다갔다 할 수 있도록
+                current = 1 - current;
+                drawChart();
+
+                if (button.innerText === '부산 보기') {
+                    button.innerText = '서울 보기';
+                } else if (button.innerText === '서울 보기') {
+                    button.innerText = '부산 보기';
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="btn_wrap">
+        <button onclick="showLine()">서울시 인구수 변화 추이(선그래프)</button>
+        <button onclick="showBar()">서울시 인구수 변화 추이(막대그래프)</button>
+        <button onclick="showLineAnimation()">서울과 부산의 인구수 추이</button>
+    </div>
+
+    <div id="lineChart1" style="width: 900px; height: 500px"></div>
+    <div id="bar_chart" style="width: 900px; height: 500px; display:none;"></div>
+
+    <div id="lineChart2_wrap" style="width: 900px; height: 500px; display:none;">
+        <button id="chart_change_btn" type="button" onclick='change_busan()'>부산 보기</button>
+        <div id="lineChart2" style="width: 900px; height: 500px;"></div>
+    </div>
+
+    <script type="text/javascript" src="javascript_chart.js"></script>
+
+    <script>
+        function showLine() {
+            var lineChart1 = document.getElementById('lineChart1');
+            var bar_chart = document.getElementById('bar_chart');
+            var lineChart2 = document.getElementById('lineChart2_wrap');
+
+            if (lineChart1.style.display == 'none') {
+                lineChart1.style.display = 'block';
+                bar_chart.style.display = 'none';
+                lineChart2.style.display = 'none';
+            }
+        }
+
+        function showBar() {
+            var lineChart1 = document.getElementById('lineChart1');
+            var bar_chart = document.getElementById('bar_chart');
+            var lineChart2 = document.getElementById('lineChart2_wrap');
+
+            if (bar_chart.style.display == 'none') {
+                bar_chart.style.display = 'block';
+                lineChart1.style.display = 'none';
+                lineChart2.style.display = 'none';
+            }
+        }
+
+        function showLineAnimation() {
+            var lineChart1 = document.getElementById('lineChart1');
+            var bar_chart = document.getElementById('bar_chart');
+            var lineChart2 = document.getElementById('lineChart2_wrap');
+
+            if (lineChart2.style.display == 'none') {
+                lineChart2.style.display = 'block';
+                bar_chart.style.display = 'none';
+                lineChart1.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+
+</html>
