@@ -1,0 +1,60 @@
+body {
+    margin:0;
+  }
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 20vh;
+    background-color: antiquewhite;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(36, 190, 196);
+    padding : 8px 12px;
+    margin : 0;
+  }
+  
+  .navbar > li {
+    list-style-type: none;
+    margin : 5px 0;
+  }
+  .navbar > li > a {
+    text-decoration: none;
+  }
+  .navbar > li > a:hover {
+      color: brown;
+      font-weight: bold;
+  }
+
+  section {
+    display:inline-block;
+    width : 85%;
+  }
+  
+  #lineChart2_wrap {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+  }
+  
+  #chart_change_btn {
+    width:20%;
+    height:10%;
+    margin-left : 60%;
+    margin-top : 2%;
+  }
+  
+  @media screen and (max-width:768px) {
+    .navbar {
+      flex-direction: column;
+      align-items: center;
+      /* 화면 너비가 768보다 작아지면 플렉스 아이템들을 컬럼방향으로 정렬 */
+    }
+    #chart_change_btn {
+      margin-left: 20%;
+    }
+  }
